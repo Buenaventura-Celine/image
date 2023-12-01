@@ -46,7 +46,7 @@ Image drawString(Image image, String string,
   if (wrap) {
     final words = string.split(
       RegExp(
-        r"\s+",
+        r"[\n|\r|\s+]",
         multiLine: true, 
         dotAll: true,
       )
