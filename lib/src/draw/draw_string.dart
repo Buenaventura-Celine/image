@@ -44,7 +44,13 @@ Image drawString(Image image, String string,
   var sy = y ?? (image.height / 2).round() - (stringHeight / 2).round();
 
   if (wrap) {
-    final words = string.split(RegExp(r"\s+"));
+    final words = string.split(
+      RegExp(
+        r"\s+",
+        multiLine: true, 
+        dotAll: true,
+      )
+    );
     var subString = "";
     var x2 = sx;
 
@@ -104,7 +110,13 @@ Image drawString(Image image, String string,
   }
 
   final origX = sx;
-  final substrings = string.split(RegExp(r"[\n|\r]"));
+  final substrings = string.split(
+    RegExp(
+      r"[\n|\r]", 
+      multiLine: true, 
+      dotAll: true,
+    ),
+  );
 
   for (var ss in substrings) {
     final chars = ss.codeUnits;
